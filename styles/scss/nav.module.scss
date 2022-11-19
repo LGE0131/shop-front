@@ -1,6 +1,92 @@
 .container {
+    margin-top: 40px;
+    width: 100vw;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     .logo {
         font-size: 30px;
+        cursor: pointer;
+    }
+    .navContents {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .cate0 {
+            display: flex;
+            justify-content: space-between;
+            .navSearch {
+                list-style: none;
+                display: flex;
+                position: relative;
+                margin-left: 150px;
+                .searchBar {
+                    .searchBarInput{
+                        width: 100%;
+                        height: 40px;
+                    }
+                }
+                .searchIcon {
+                    position: absolute;
+                    top: 20%;
+                    left: 80%;
+                    .searchIconBtn {
+                        background-color: #fff;
+                        border: none;
+                    }
+                }
+            }
+            .gnb {
+                list-style: none;
+                display: flex;
+                vertical-align: middle;
+                width: 30vw;
+                justify-content: space-around;
+                margin-right: 150px;
+            }
+        }
+        .cate1 {
+            display: flex;
+            justify-content: space-around;
+            .cate1Left {
+                vertical-align: middle;
+                display: flex;
+                list-style: none;
+                width: 10vw;
+                justify-content: space-between;
+            }
+            .cate1Right {
+                vertical-align: middle;
+                display: flex;
+                list-style: none;
+                width: 30vw;
+                justify-content: space-around;
+                margin-right: 100px;
+            }
+        }
+    }
+}
+
+.cate0 {
+    li {
+        cursor: pointer;
+    }
+}
+
+.cate1Left {
+    li {
+        cursor: pointer;
+    }
+}
+
+.cate1Right {
+    li {
+        cursor: pointer;
+    }
+}
+
+.gnb {
+    li {
+        font-size: 12px;
     }
 }

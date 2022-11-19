@@ -1,8 +1,84 @@
 .container {
+  margin-top: 40px;
+  width: 100vw;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .container .logo {
   font-size: 30px;
+  cursor: pointer;
+}
+.container .navContents {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.container .navContents .cate0 {
+  display: flex;
+  justify-content: space-between;
+}
+.container .navContents .cate0 .navSearch {
+  list-style: none;
+  display: flex;
+  position: relative;
+  margin-left: 150px;
+}
+.container .navContents .cate0 .navSearch .searchBar .searchBarInput {
+  width: 100%;
+  height: 40px;
+}
+.container .navContents .cate0 .navSearch .searchIcon {
+  position: absolute;
+  top: 20%;
+  left: 80%;
+}
+.container .navContents .cate0 .navSearch .searchIcon .searchIconBtn {
+  background-color: #fff;
+  border: none;
+}
+.container .navContents .cate0 .gnb {
+  list-style: none;
+  display: flex;
+  vertical-align: middle;
+  width: 30vw;
+  justify-content: space-around;
+  margin-right: 150px;
+}
+.container .navContents .cate1 {
+  display: flex;
+  justify-content: space-around;
+}
+.container .navContents .cate1 .cate1Left {
+  vertical-align: middle;
+  display: flex;
+  list-style: none;
+  width: 10vw;
+  justify-content: space-between;
+}
+.container .navContents .cate1 .cate1Right {
+  vertical-align: middle;
+  display: flex;
+  list-style: none;
+  width: 30vw;
+  justify-content: space-around;
+  margin-right: 100px;
+}
+
+.cate0 li {
+  cursor: pointer;
+}
+
+.cate1Left li {
+  cursor: pointer;
+}
+
+.cate1Right li {
+  cursor: pointer;
+}
+
+.gnb li {
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=nav.module.css.map */

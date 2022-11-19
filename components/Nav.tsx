@@ -5,6 +5,8 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AddIcon from '@mui/icons-material/Add';
+import SearchIcon from '@mui/icons-material/Search';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Nav = () => {
 return (
@@ -12,7 +14,10 @@ return (
     <div className={styels.logo}>여름일기</div>
     <div className={styels.navContents}>
         <div className={styels.cate0}>
-            <div className={styels.navSearch}></div>
+            <ul className={styels.navSearch}>
+                <li className={styels.searchBar}><input className={styels.searchBarInput} type='search' placeholder='검색'/></li>
+                <li className={styels.searchIcon}><button className={styels.searchIconBtn}><SearchIcon/></button></li>
+            </ul>
             <ul className={styels.gnb}>
                 <li className={styels.navLogin}>로그인</li>
                 <li className={styels.navSignUp}>회원가입</li>
@@ -26,6 +31,7 @@ return (
         </div>
         <div className={styels.cate1}>
             <ul className={styels.cate1Left}>
+                <li className={styels.navMenu}><MenuIcon/></li>
                 <li className={styels.bestItemView}>베스트</li>
                 <li className={styels.eventItemView}>이벤트</li>
             </ul>
