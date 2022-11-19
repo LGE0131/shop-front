@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+}
+.container .logo {
+  font-size: 30px;
+}
+
+/*# sourceMappingURL=nav.module.css.map */
