@@ -7,6 +7,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
+import Link from 'next/link'
 
 const Nav = () => {
 return (
@@ -19,7 +20,7 @@ return (
                 <li className={styels.searchIcon}><button className={styels.searchIconBtn}><SearchIcon/></button></li>
             </ul>
             <ul className={styels.gnb}>
-                <li className={styels.navLogin}>로그인</li>
+                <li className={styels.navLogin}><Link href='/loginout'>로그인</Link></li>
                 <li className={styels.navSignUp}>회원가입</li>
                 <li className={styels.sc}>고객센터</li>
                 <li className={styels.cu}>문의하기</li>
