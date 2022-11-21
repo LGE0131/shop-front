@@ -1,0 +1,162 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 20px;
+}
+.container .loginLogo {
+  font-size: 40px;
+}
+.container .cntBody {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.container .cntBody .loginFormBox .loginForm .loginFieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .cntBody .loginFormBox .loginForm .loginFieldset .memberLoginTitle {
+  font-size: 20px;
+}
+.container .cntBody .loginFormBox .loginForm .loginFieldset .loginId {
+  margin: 20px 0 10px 0;
+}
+.container .cntBody .loginFormBox .loginForm .loginFieldset .loginId .loginIdInput {
+  border: 1px solid #d3d3d3;
+  border-radius: 25px/50%;
+  padding-left: 20px;
+  height: 50px;
+  width: 400px;
+  font-size: 14px;
+}
+.container .cntBody .loginFormBox .loginForm .loginFieldset .loginPw {
+  margin: 10px 0 10px 0;
+}
+.container .cntBody .loginFormBox .loginForm .loginFieldset .loginPw .loginPwInput {
+  border: 1px solid #d3d3d3;
+  border-radius: 25px/50%;
+  padding-left: 20px;
+  height: 50px;
+  width: 400px;
+  font-size: 14px;
+}
+.container .cntBody .loginFormBox .loginForm .loginFieldset .loginCheckBox {
+  display: flex;
+  margin-top: 10px;
+}
+.container .cntBody .loginFormBox .loginForm .loginFieldset .loginCheckBox .saveId .saveIdCheckBox {
+  margin-right: 4px;
+}
+.container .cntBody .loginFormBox .loginForm .loginFieldset .loginCheckBox .saveId .saveIdText {
+  margin-right: 20px;
+}
+.container .cntBody .loginFormBox .loginForm .loginFieldset .loginCheckBox .autoLogin .autoLoginCheckBox {
+  margin-right: 4px;
+}
+.container .cntBody .loginFormBox .loginForm .loginFieldset .memberLoginBtn {
+  width: 100%;
+  color: black;
+  height: 50px;
+  line-height: 50px;
+  background-color: #fae5aa;
+  border: 1px solid #fae5aa;
+  font-size: 16px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.container .cntBody .loginFormBox .loginForm .find {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  justify-content: center;
+}
+.container .cntBody .loginFormBox .loginForm .find .findIdPw {
+  margin-right: 20px;
+}
+.container .cntBody .loginFormBox .snsLogin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .cntBody .loginFormBox .snsLogin .snsLoginBtn {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.container .cntBody .orderFormBox .orderForm .orderFormFieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .cntBody .orderFormBox .orderForm .orderFormFieldset .orderFormTitle {
+  font-size: 20px;
+}
+.container .cntBody .orderFormBox .orderForm .orderFormFieldset .name {
+  margin: 20px 0 10px 0;
+}
+.container .cntBody .orderFormBox .orderForm .orderFormFieldset .name .nameInput {
+  border: 1px solid #d3d3d3;
+  border-radius: 25px/50%;
+  padding-left: 20px;
+  height: 50px;
+  width: 400px;
+  font-size: 14px;
+}
+.container .cntBody .orderFormBox .orderForm .orderFormFieldset .orderNo {
+  margin: 10px 0 10px 0;
+}
+.container .cntBody .orderFormBox .orderForm .orderFormFieldset .orderNo .orderNoInput {
+  border: 1px solid #d3d3d3;
+  border-radius: 25px/50%;
+  padding-left: 20px;
+  height: 50px;
+  width: 400px;
+  font-size: 14px;
+}
+.container .cntBody .orderFormBox .orderForm .orderFormFieldset .orderPw {
+  margin: 10px 0 10px 0;
+}
+.container .cntBody .orderFormBox .orderForm .orderFormFieldset .orderPw .orderPwInput {
+  border: 1px solid #d3d3d3;
+  border-radius: 25px/50%;
+  padding-left: 20px;
+  height: 50px;
+  width: 400px;
+  font-size: 14px;
+}
+.container .cntBody .orderFormBox .orderForm .orderFormFieldset .orderSearch {
+  width: 100%;
+  color: black;
+  height: 50px;
+  line-height: 50px;
+  background-color: #fae5aa;
+  border: 1px solid #fae5aa;
+  font-size: 16px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.container .cntBody .orderFormBox .orderForm .orderFormFieldset .findOrderSearch {
+  width: 100%;
+  color: black;
+  height: 50px;
+  line-height: 50px;
+  background-color: #fae5aa;
+  border: 1px solid #fae5aa;
+  font-size: 16px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.snsLoginBtn li {
+  margin-right: 13px;
+}
+
+/*# sourceMappingURL=loginout.module.css.map */
