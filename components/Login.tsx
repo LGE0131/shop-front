@@ -1,7 +1,55 @@
-import React from 'react'
+import React, { useState, useRef, useCallback, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
+
+import { logIn } from '../actions/user';
+import useInput from '../hooks/useInput';
+import { RootState } from '../slices/loginSlice';
+
 import styles from '../styles/css/loginout.module.css'
 
 const Login = () => {
+
+    const [email, onChangeEmail] = useInput('');
+    const [password, onChangePassword] = useInput('');
+  
+    const [emailError, setEmailError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+  
+    const isLoading = useSelector((state: RootState) => state.user.isLoading);
+    const logInError = useSelector((state: RootState) => state.user.logInError);
+    const passwordInput = useRef<HTMLInputElement>(null);
+    const dispatch = useDispatch();
+  
+    useEffect(() => {
+      setPasswordError(false);
+      setEmailError(false);
+    }, []);
+  
+    useEffect(() => {
+      if (logInError) {
+        if (logInError === '이메일 또는 비밀번호가 일치하지 않습니다.') {
+          setPasswordError(true);
+          passwordInput.current?.focus();
+        } else {
+          setEmailError(true);
+        }
+      }
+    }, [logInError]);
+  
+    const onSubmitLogIn = useCallback(
+      function (e: any) {
+            e.preventDefault();
+            dispatch(
+                logIn({
+                    email,
+                    password,
+                })
+            );
+        },
+      [email, password, dispatch]
+    );
+
   return (
     <div className={styles.container}>
         <div className={styles.loginLogo}>LOGIN</div>
@@ -12,10 +60,10 @@ const Login = () => {
                     <fieldset className={styles.loginFieldset}>
                         <legend className={styles.memberLoginTitle}>회원로그인</legend>
                         <div className={styles.loginId}>
-                            <input className={styles.loginIdInput} type='text' name='id' placeholder='아이디' autoComplete='off'/>
+                            <input className={styles.loginIdInput} value={email} onChange={onChangeEmail} type='text' name='id' placeholder='아이디' autoComplete='off'/>
                         </div>
                         <div className={styles.loginPw}>
-                            <input className={styles.loginPwInput} type='text' name='pw' placeholder='비밀번호' autoComplete='off'/>
+                            <input className={styles.loginPwInput} value={password} onChange={onChangePassword} type='text' name='pw' placeholder='비밀번호' autoComplete='off'/>
                         </div>
                         <div className={styles.loginCheckBox}>
                             <div className={styles.saveId}>
@@ -27,11 +75,13 @@ const Login = () => {
                                 <span className={styles.autoLoginText}>자동 로그인</span>
                             </div>
                         </div>
+                        {emailError && <span>{logInError}</span>}
+                        {passwordError && <span>{logInError}</span>}
                         <input className={styles.memberLoginBtn} type='submit' value='로그인'/>
                     </fieldset>
                     <ul className={styles.find}>
                         <li className={styles.findIdPw}>아이디/비밀번호 찾기</li>
-                        <li className={styles.signUp}>회원가입</li>
+                        <li className={styles.signUp}><Link href='/signup'>회원가입</Link></li>
                     </ul>
                 </form>
                 <div className={styles.snsLogin}>

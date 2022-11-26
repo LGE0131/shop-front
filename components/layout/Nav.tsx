@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import styels from '../styles/css/nav.module.css'
+import styels from '../../styles/css/nav.module.css'
 import  PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
