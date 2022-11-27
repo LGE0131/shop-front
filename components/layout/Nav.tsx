@@ -10,6 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link'
 
 const Nav = () => {
+
 return (
 <div className={styels.container}>
     <div className={styels.logo}>여름일기</div>
@@ -21,7 +22,7 @@ return (
             </ul>
             <ul className={styels.gnb}>
                 <li className={styels.navLogin}><Link href='/loginout'>로그인</Link></li>
-                <li className={styels.navSignUp}>회원가입</li>
+                <li className={styels.navSignUp}><Link href='/signup'>회원가입</Link></li>
                 <li className={styels.sc}>고객센터</li>
                 <li className={styels.cu}>문의하기</li>
                 <li className={styels.mp}><PersonIcon/></li>
