@@ -19,11 +19,16 @@ const Signup = () => {
         };
       }, [userPw, userPwConfirm]);
 
+    const signupSubmit = (e: any) => {
+        e.preventDefault();
+        console.log(e.target.name.value);
+    }
+
 
 return (
 <div className={styles.container}>
     <div className={styles.signupFormBox}>
-        <form className={styles.signupForm} name='orderForm' method='post' action='/'>
+        <form className={styles.signupForm} onSubmit={signupSubmit} name='orderForm'>
             <fieldset className={styles.signupFormFieldset}>
                 <legend className={styles.signupFormTitle}>회원가입</legend>
                 <div className={styles.name}>
@@ -38,7 +43,7 @@ return (
                         autoComplete='off' />
                 </div>
                 <div className={styles.PwConfirm}>
-                    <input className={styles.PwConfirmInput} onChange={e => {setUserPwConfirm(e.target.value)}} type='passwordConfirm' name='passwordConfirm' placeholder='비밀번호 확인'
+                    <input className={styles.PwConfirmInput} onChange={e => {setUserPwConfirm(e.target.value)}} type='password' name='passwordConfirm' placeholder='비밀번호 확인'
                         autoComplete='off' />
                 </div>
                 {pwError && (<span>비밀번호가 일치하지 않습니다.</span>)}
