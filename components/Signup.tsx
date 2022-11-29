@@ -21,9 +21,7 @@ const Signup = () => {
 
     const signupSubmit = (e: any) => {
         e.preventDefault();
-        console.log(e.target.name.value);
     }
-
 
 return (
 <div className={styles.container}>
