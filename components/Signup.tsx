@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, FormEventHandler } from 'react'
 import styles from '../styles/css/signup.module.css'
 
 const Signup = () => {
