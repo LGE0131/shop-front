@@ -1,6 +1,6 @@
 import React from 'react'
 import Nav from '../components/layout/Nav'
-import Signup from '../components/Signup'
+import Signup from '../components/layout/Signup'
 
 const signup = () => {
 return (
