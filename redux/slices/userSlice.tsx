@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
+
 axios.defaults.baseURL = 'http://localhost:3030'
 axios.defaults.withCredentials = true;
 
@@ -22,12 +23,12 @@ const initialState: UserState = {
     loading: 'idle'
 }
 
-export const signup: any = createAsyncThunk(
+export const signup = createAsyncThunk(
     '/signup',
-    async (user, {rejectWithValue}) => {
+    async (input: object, {rejectWithValue}) => {
         try {
-            const reponse = await axios.post('/', user)
-            return reponse.data.json()
+            const reponse = await axios.post('/signup', input)
+            return reponse.data
         } catch (error: any) {
             console.log(error);
             return rejectWithValue(error.response.data)
@@ -35,15 +36,6 @@ export const signup: any = createAsyncThunk(
     }
 )
 
-
-// const fetchUserById = createAsyncThunk(
-//     'users/fetchById',
-//     // if you type your function argument here
-//     async (userId: number) => {
-//       const response = await axios.post(`https://reqres.in/api/users/${userId}`)
-//       return (await response.json())
-//     }
-//   )
 
 export const userSlice = createSlice({
     name: 'user',  // name은 Slice와 맞고, 기억되기 쉬운걸로 지어주자.
