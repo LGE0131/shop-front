@@ -19,7 +19,7 @@ const Signup = () => {
     // const [userEmail, setUserEmail] = useState<string>('');
     // const [userPw, setUserPw] = useState<string>('');
     // const [userPwConfirm, setUserPwConfirm] = useState<string>('');
-    // const [pwError, setPwError] = useState<boolean>(false);
+    const [pwError, setPwError] = useState<boolean>(false);
 
     const userNameRef: React.LegacyRef<HTMLInputElement> = useRef(null);
     const userPwRef: React.LegacyRef<HTMLInputElement> = useRef(null);
@@ -28,15 +28,14 @@ const Signup = () => {
 
     const dispatch = useAppDispatch();
      
-    // useEffect(() => {
-    //     if (userPw !== userPwConfirm) {
-    //         setPwError(true);
-    //     }
-    //     return () => {
-    //       setPwError(false);
-    //     };
-    // }, [userPw, userPwConfirm]);
-
+    useEffect(() => {
+        if (userPwRef.current?.value !== userPwConfilrmRef.current?.value) {
+            setPwError(true);
+        }
+        return () => {
+          setPwError(false);
+        };
+    }, [userPwRef.current?.value, userPwConfilrmRef.current?.value]);
 
     const signupSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault()
@@ -72,7 +71,7 @@ return (
                     <input className={styles.PwConfirmInput} type='password' name='passwordConfirm' placeholder='비밀번호 확인'
                         autoComplete='off' ref={userPwConfilrmRef} />
                 </div>
-                {/* {pwError && (<span>비밀번호가 일치하지 않습니다.</span>)} */}
+                {pwError && (<span>비밀번호가 일치하지 않습니다.</span>)}
                 <input className={styles.signupDone} type='submit' value='가입완료!' />
             </fieldset>
         </form>
