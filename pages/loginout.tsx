@@ -2,7 +2,7 @@ import React from 'react'
 import Login from '../components/layout/Login'
 import Nav from '../components/layout/Nav'
 
-const loginout = () => {
+const Loginout = () => {
   return (
     <div>
         <Nav/>
@@ -11,4 +11,4 @@ const loginout = () => {
   )
 }
 
-export default loginout
+export default Loginout

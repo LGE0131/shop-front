@@ -1,7 +1,7 @@
 import React from 'react'
 import Nav from '../components/layout/Nav'
 
-const myPage = () => {
+const MyPage = () => {
 return (
     <div>
         <Nav />
@@ -10,4 +10,4 @@ return (
 )
 }
 
-export default myPage
+export default MyPage
