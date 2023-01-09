@@ -10,25 +10,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/configureStore';
-import { useAppDispatch } from '../../redux/hooks';
-import { login, logout } from '../../redux/slices/userSlice';
-
 
 const Nav = () => {
 
     const ifLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
-
-    // const dispatch = useAppDispatch();
-
-    // const logoutClickEvent = (e: React.SyntheticEvent) => {
-    //     e.preventDefault()
-    //     const input = {
-    //         userEmail: '',
-    //         userPw: ''
-    //     }
-    //     console.log(input)
-    //     dispatch(logout(input))
-    // }
 
     return (
     <div className={styels.container}>
@@ -47,7 +32,7 @@ const Nav = () => {
                     <li className={styels.navLogin}>
                         { ifLoggedIn ?
                         <Link href='/Loginout'>로그인</Link> :
-                        <Link href='/Loginout'>로그아웃</Link>}
+                        <Link href='/Main'>로그아웃</Link>}
                     </li>
                     <li className={styels.navSignUp}>
                         <Link href='/signup'>회원가입</Link>
