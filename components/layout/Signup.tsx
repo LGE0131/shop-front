@@ -32,11 +32,11 @@ const Signup = () => {
     // validUserPwConfirm: "",
   });
 
-  const [pwSame, setPwSame] = useState<boolean>(false);
+  const [pwSame, setPwSame] = useState<boolean>(true);
   const [isEmail, setIsEmail] = useState<boolean>(false);
   const [isPw, setIsPw] = useState<boolean>(false);
   const [isName, setIsName] = useState<boolean>(false);
-  const [disabledSignupBtn, setDisabledSignupBtn] = useState<boolean>(false);
+  const [isBtn, setIsBtn] = useState<boolean>(false)
 
   const userNameRef: React.LegacyRef<HTMLInputElement> = useRef(null);
   const userPwRef: React.LegacyRef<HTMLInputElement> = useRef(null);
@@ -64,13 +64,19 @@ const Signup = () => {
       ...validationInput,
       [e.target.name]: e.target.value,
     });
-    console.log(validationInput);
   };
 
   useEffect(() => {
-    if (input.userPw === input.userPwConfirm) {
-      setPwSame(true);
-    } else {
+    if(input.userName) {
+      setIsName(true)
+    }
+    return () => {
+      setIsName(false)
+    }
+  }, [input.userName])
+
+  useEffect(() => {
+    if (input.userPw !== input.userPwConfirm) {
       setPwSame(false);
     }
     return () => {
@@ -84,13 +90,32 @@ const Signup = () => {
     );
     if (regex.test(input.userEmail)) {
       setIsEmail(true);
-    } else {
-      setIsEmail(false);
     }
     return () => {
       setIsEmail(false);
     };
   }, [input.userEmail]);
+
+  useEffect(() => {
+    let reg = new RegExp(
+     "^[a-zA-Z\\d`~!@#$%^&*()-_=+]{8,24}$"
+    );
+    if (reg.test(input.userPw)) {
+      setIsPw(true);
+    }
+    return () => {
+      setIsPw(false)
+    }
+  },[input.userPw])
+
+  useEffect(() => {
+    if (isName && isEmail && isPw && pwSame) {
+      setIsBtn(true)
+    }
+    return () => {
+      setIsBtn(false)
+    }
+  }, [isName, isEmail, isPw, pwSame])
 
   const signupSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -120,6 +145,7 @@ const Signup = () => {
                 onChange={handlerChange}
               />
             </div>
+            {isName ? null : <span>이름을 입력해주세요.</span>}
             <div className={styles.email}>
               <input
                 className={styles.emailInput}
@@ -137,12 +163,13 @@ const Signup = () => {
                 className={styles.pwInput}
                 type="password"
                 name="password"
-                placeholder="특수문자, 숫자, 영대소문자 각 3가지 포함 8 ~ 25자"
+                placeholder="최소8자, 하나 이상의 문자, 하나의 숫자 및 하나의 특수 문자"
                 autoComplete="off"
                 ref={userPwRef}
                 onChange={handlerChange}
               />
             </div>
+            {isPw ? null : <span>유효한 비밀번호 양식이 아닙니다.</span>}
             <div className={styles.PwConfirm}>
               <input
                 className={styles.PwConfirmInput}
@@ -155,12 +182,17 @@ const Signup = () => {
               />
             </div>
             {pwSame ? null : <span>비밀번호가 일치하지 않습니다.</span>}
-            <input
+            {isBtn ? <input
               className={styles.signupDone}
               type="submit"
               value="가입완료!"
-              disabled
-            />
+            /> : <input
+            className={styles.signupDone}
+            type="submit"
+            value="양식에 맞춰 진행해주세용!"
+            disabled
+          />}
+            
           </fieldset>
         </form>
       </div>

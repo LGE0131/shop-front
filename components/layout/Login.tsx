@@ -7,20 +7,44 @@ import { login, logout } from '../../redux/slices/userSlice'
 
 const Login = () => {
 
+    const [validationInput, setValidationInput] = useState<Object>({});
+
+    const [isBtn, setIsBtn] = useState<boolean>(false)
+
     const userPwRef: React.LegacyRef<HTMLInputElement> = useRef(null);
     const userEmailRef: React.LegacyRef<HTMLInputElement> = useRef(null);
 
     const dispatch = useAppDispatch();
 
+    const input = {
+        userEmail: userEmailRef.current?.value,
+        userPw: userPwRef.current?.value,
+    }
+
     const loginSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault()
-        const input = {
-            userEmail: userEmailRef.current?.value,
-            userPw: userPwRef.current?.value,
-        }
+
         console.log(input)
         dispatch(login(input))
     }
+
+    useEffect(() => {
+        if(input.userEmail && input.userPw ) {
+            setIsBtn(true)
+        }
+        return () => {
+            setIsBtn(false)
+        }
+      }, [input.userEmail, input.userPw])
+
+
+      const handlerChange = (e: any) => {
+        setValidationInput({
+          ...validationInput,
+          [e.target.name]: e.target.value,
+        });
+      };
+    
 
     return (
         <div className={styles.container}>
@@ -32,10 +56,10 @@ const Login = () => {
                         <fieldset className={styles.loginFieldset}>
                             <legend className={styles.memberLoginTitle}>회원로그인</legend>
                             <div className={styles.loginId}>
-                                <input className={styles.loginIdInput} type='text' name='id' placeholder='아이디' autoComplete='off' ref={userEmailRef}/>
+                                <input className={styles.loginIdInput} type='text' name='id' placeholder='아이디' autoComplete='off' ref={userEmailRef} onChange={handlerChange}/>
                             </div>
                             <div className={styles.loginPw}>
-                                <input className={styles.loginPwInput} type='password' name='pw' placeholder='비밀번호' autoComplete='off' ref={userPwRef}/>
+                                <input className={styles.loginPwInput} type='password' name='pw' placeholder='비밀번호' autoComplete='off' ref={userPwRef} onChange={handlerChange}/>
                             </div>
                             <div className={styles.loginCheckBox}>
                                 <div className={styles.saveId}>
@@ -47,7 +71,7 @@ const Login = () => {
                                     <span className={styles.autoLoginText}>자동 로그인</span>
                                 </div>
                             </div>
-                            <input className={styles.memberLoginBtn} type='submit' value='로그인'/>
+                            {isBtn ? <input className={styles.memberLoginBtn} type='submit' value='로그인'/> : <input className={styles.memberLoginBtn} type='submit' value='아이디와 비밀번호를 입력해주세요' disabled/>}
                         </fieldset>
                         <ul className={styles.find}>
                             <li className={styles.findIdPw}>아이디/비밀번호 찾기</li>
