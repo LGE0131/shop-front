@@ -3,13 +3,6 @@ import styles from "../../styles/css/signup.module.css";
 import { useAppDispatch } from "../../redux/hooks/index";
 import { signup } from "../../redux/slices/userSlice";
 
-// interface ValidationInput {
-//   validUserName: string | undefined;
-//   validUserEmail: string | undefined;
-//   validUserPw: string | undefined;
-//   validUserPwConfirm: string | undefined;
-// }
-
 interface Input {
   userName: string | undefined;
   userEmail: string | undefined;
@@ -17,19 +10,8 @@ interface Input {
   userPwConfirm: string | undefined;
 }
 
-// interface FrontSignupValidation {
-//   isEmail: boolean;
-//   isPw: boolean;
-//   isName: boolean;
-//   disabledSignupBtn: boolean;
-// }
-
 const Signup = () => {
   const [validationInput, setValidationInput] = useState({
-    // validUserName: "",
-    // validUserEmail: "",
-    // validUserPw: "",
-    // validUserPwConfirm: "",
   });
 
   const [pwSame, setPwSame] = useState<boolean>(true);
@@ -49,13 +31,6 @@ const Signup = () => {
     userPw: userPwRef.current?.value,
     userPwConfirm: userPwConfilrmRef.current?.value,
   };
-
-  //   const frontSignupValidation: FrontSignupValidation = {
-  //     isEmail: false,
-  //     isPw: false,
-  //     isName: false,
-  //     disabledSignupBtn: false,
-  //   };
 
   const dispatch = useAppDispatch();
 
